@@ -56,8 +56,8 @@
     <div class="w3-top" id="shs-foot">
         <div class="w3-row w3-black">
             <div class="w3-buttons">
-                <a href="/index.html" class="w3-bar-item w3-button w3-right "><i class="fa fa-home"></i></a>
-                <a href="/login-instructions/index.html" class="w3-bar-item w3-button w3-right "><i class="fa fa-question-circle"></i></a>
+                
+               
             </div>
             <div class="shs-logo-foot">
                 <p class="shs-foot-text">Sydney Technical High School</p>
@@ -65,26 +65,41 @@
         </div>
     </div>
 
+
     <!-- login container -->
     <div id="shs-login-container">
         <div class="w3-container" id="shs-login">
             <div class="w3-card-4">
                 <!-- login header -->
                 <header class="w3-container">
-                    <h2 id="shs-login-title">Log In Instructions</h2>              
+                    <h2 id="shs-login-title">Portal Log In</h2>              
                 </header>
 
                 <!-- login content -->
                 <div class="w3-container">
+                    <p id="shs-login-instruction">Log in with your tech.interact account &mdash;</p>
+                    <div id="shs-login-message"></div> <!-- Error message will appear here -->
 
-                    <strong>Interact Members</strong>
+                    <!-- Login form -->
+                    <form id="shs-login-form">
+                        <section id="fld-username" class="shs-field w3-section">
+                            <input class="w3-input" type="text" placeholder="Username" name="username" id="fld-username-fld" autofocus="autofocus" />
+                            <span class="bar"></span>
+                        </section>
 
-                    <p>Interact Board of Directors are automatically registered into the system. </p> <p>You would've received an email regarding your log in details and your log in password. </p>
-
+                        <section id="fld-password" class="shs-field w3-section">
+                            <input class="w3-input" type="password" placeholder="Password" name="password" id="fld-password-fld" />
+                            <span class="bar"></span>
+                        </section>
 
                         <section class="w3-section">
-                            <button type="button" onclick="window.location.href='/login/index.html'" class="w3-button w3-block w3-blue"> << Back to Login </button>
+                            <button type="button" onclick="validateLogin()" class="w3-button w3-block w3-blue">Log In</button>
                         </section>
+                    </form>
+
+                    <section class="w3-section" id="shs-login-links">                    
+                        <p><a href="/login-instructions/index.html">Can't access your account?</a></p>
+                        <p><a href="/register/index.html">Register for an account</a></p>
                     </section>
                 </div>
             </div>
@@ -106,8 +121,8 @@
                 // Display error message if credentials are incorrect
                 document.getElementById("shs-login-message").innerHTML = `
                     <div class="error-message">
-                        <p>Unable to register your account.</p>
-                        <p>THe field you have provied is either empty or has already been registered.</p>
+                        <p>Unable to log you in</p>
+                        <p>The username or password is incorrect. Please try again.</p>
                     </div>
                 `;
             }
